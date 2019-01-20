@@ -1,0 +1,33 @@
+\chapter{Conclusão}
+
+%\lipsum[1-1]
+
+\section{Discussão dos Resultados}
+
+O resultado do desvio padrão (D.P.) se mostra satisfatório confirmando a robustez do algoritmo para os experimentos contemplando somete o TACO. Comparado com a minimização dos dois objetivos, a minimização da RML foi inferior na minimização do CTR. Essa otimização proporciona um número maior de entregas pelos entregadores visto que o custo da rota individual é balanceado de modo a não sobrecarregar ou ocasionar ociosidade em um dos entregadores. Com os entregadores realizando mais entregas em menos tempo, essa técnica é mais favorável quando o custo total do deslocamento não é o objetivo, mas sim a quantidade de entregas por cada entregador.
+
+Vale ressaltar que, na minimização do CTR, a carga não é distribuída de maneira uniforme para os entregadores podendo um ou mais entregadores ficar com sobrecarga ou ocioso dependendo da configuração. Já na minimização da RML, focado em minimizar a maior rota individual, distribuindo a carga de maneira uniforme para todos os entregadores.
+
+Ao comparar os resultados, sem e com OGs e otimização mono-objetivo, é possível perceber o bom desempenho da abordagem FSS-TACO em face das abordagens TACO e PSO-TACO. Entretanto, o seu uso se torna inviável, dependendo da situação, por requerer um tempo de execução superior aos das outras abordagens presentes na comparação. Para uma abordagem multi-objetiva, o MOFSS sendo o OG do algoritmo base, mostra resultados parciais interessantes visto que obteve resultados melhores para CTR e RML se comparado aos resultados do algoritmo base. Como a instância construída para este trabalho não possui grande complexidade, a Curva de Pareto, com as soluções ótimas, se restringe a quatro soluções não-dominadas.
+
+\section{Conclusão}
+
+O problema de Múltiplos Caixeiros Viajantes (MTSP) vem sendo estudado nas últimas duas décadas apresentando várias abordagens para a otimização de suas soluções. Entretanto, ainda é escasso estudos relacionados ao MTSP dentro da área hospitalar. Este trabalho mostra que a distribuição de medicamentos em um hospital de grande porte ou em grande rede de farmácias pode ser realizada de forma eficiente com o auxílio de uma ferramenta computacional.
+
+O modelo proposto descrito foi eficiente na distribuição das ordens de serviço entre os entregadores e na criação de rotas otimizadas para a realização dos serviços. No entanto, algumas questões precisam ser analisadas, como a otimização multi-objetivo do custo total das rotas e a rota mais longa e a otimização das mochilas dos entregadores.
+
+Para a criação de soluções otimizadas para MTSP neste trabalho, um algoritmo baseado na meta-heurística ACO foi implementado e associado a um otimizador global. O FSS e PSO foram responsáveis por otimizar os parâmetros TACO para melhorar os resultados.
+
+Como mostrado na Seção 6, o FSS alcançou os melhores resultados para ambos os cenários, com os menores resultados de minimização para o Custo Total de Rotas (CTR) e a Rota Mais Longa (RML) com desvios padrão em torno de zero. Nesses dois casos, o FSS como otimizador global convergiu mais cedo do que as outras duas abordagens.
+
+Outra abordagem possível para o problema do MTSP é otimizar os dois objetivos simultaneamente, CTR e RML. Para atingir este objetivo, foi utilizando um algoritmo de otimização multi-objetivo chamado Multi-Objective Fish School Search (MOFSS). Os resultados parciais mostram um bom desempenho em relação ao algoritmo base (TACO). Ao minimizar CTR RML concomitantemente, a abordagem mostra melhores resultados se comparado ao TACO sem utilização de otimizadores externos. Para o problema do mundo real, é imprescindível este tipo de abordagem para que se possa fazer a mitigação de perdas e custos no processo de distribuição bem como otimizar o capital humano dispendido nos processos de logística.
+
+\section{Trabalhos Futuros}
+
+Como trabalho futuro, pretende-se verificar a utilização de algumas variações de valores para os operadores dos otimizadores globais a fim de encontrar melhores configurações. Também deve ser verifcado a distribuição dos medicamentos reduzindo variando o quadro de entregadores (aqui considerados como caixeiros da instância MTSP).
+
+Outra meta-heurística que tem obtido resultados consistentes para problemas de otimização combinatória são os Algoritmos Genéticos (AG) \cite{somhom1999competition}, que serão utilizados como otimizadores globais para comparação com os resultados obtidos pelos experimentos deste trabalho em novos experimentos.
+
+Para análise e efeito comparativo entre a proposta e os algoritmos de estado-da-arte, pretende-se realizar testes estásticos com os dados coletados durante as simulações da instância MTSP criada para a verificação de desempenho. Experimentos com a proposta e abordagens multi-objetivas como SMPSO (NEBRO et al., 2009) \cite{nebro2009}, MOEA/D (ZHANG; LI, 2007) \cite{zhang2007} e SPEA2 (ZITZLER; LAUMANNS; THIELE, 2001) \cite{zitzler2001} também serão realizados para verificar a robustez e eficiência. Como consequência, haverá realização de um quadro comparativo entre as diferentes instâncias do problema e a aplicação das abordagens citadas neste trabalho.
+
+Por último, outro ponto diz respeito ao caráter dinâmico do ambiente em estudo. Enquanto a metodologia proposta mostra-se viável para cenários estáticos, no qual todas as ordens e as posições dos entregadores são conhecidas antes da otimização, no ambiente real serviços surgem durante o dia de trabalho dos entregadores e podem ter maior prioridade que outros, como as ordens emergenciais. Para tratamento desta demanda, a metodologia desenvolvida será adaptada para gerar novas soluções otimizadas a cada mudança no ambiente real, como o surgimento de novas ordens.

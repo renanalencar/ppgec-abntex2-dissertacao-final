@@ -1,0 +1,90 @@
+\chapter{Introdução}
+% ----------------------------------------------------------
+
+% Este documento e seu código-fonte são exemplos de referência de uso da classe
+% \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento
+% exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
+% gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
+% - Trabalhos acadêmicos - Apresentação} \cite{NBR14724:2011}.
+% A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
+% modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+% somente os requisitos das normas da ABNT. Uma lista completa das normas
+% observadas pelo \abnTeX\ é apresentada em \cite{abntex2classe}.
+
+% Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+% \url{http://www.abntex.net.br/}. Também fique livre para conhecer,
+% estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+% modificados tenham seus nomes alterados e que os créditos sejam dados aos
+% autores originais, nos termos da ``The \LaTeX\ Project Public
+% License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+% Encorajamos que sejam realizadas customizações específicas deste exemplo para
+% universidades e outras instituições --- como capas, folha de aprovação, etc.
+% Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+% \abnTeX, distribua-se arquivos com as respectivas customizações.
+% Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+% incompatíveis com as customizações promovidas. Consulte
+% \cite{abntex2-wiki-como-customizar} par mais informações.
+
+% Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
+% \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+% \cite{memoir}.
+
+% Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
+% você produzirá, de modo que o principal esforço seja concentrado no principal:
+% na contribuição científica.
+
+% Equipe \abnTeX
+
+% Lauro César Araujo
+
+O Problema do Caixeiro Viajante (\textit{Travelling Salesman Problem} - TSP) e o Problema da Mochila (\textit{Knapsack Problem} - KP) são dois dos problemas de otimização combinatória mais estudados da atualidade. Eles se destacam de outros problemas combinatórios por serem fáceis de projetar, mas difíceis de resolver. Assim, o TSP e o KP pertencem ao conjunto de problemas NP-completos. Embora sejam difíceis de resolver, mesmo separadamente, existem alguns problemas reais que podem ser mapeados como uma combinação TSP-KP, resultando em uma tarefa complexa.
+
+De acordo Bektas (2006) \cite{bektas2006multiple}, há uma infinidade de problemas da vida real que podem ser encarados como problemas MTSP, e.g., na resolução de PRVs (Problema de Roteamento de Veículos) com adição de restrições às soluções. Na definição básica do MTSP, há $m > 1$ caixeiros inicialmente posicionados numa mesma cidade, definida como depósito. As demais cidades da instância são denominadas de intermediárias. O MTSP tem por objetivo minimizar o deslocamento total dos caixeiros, com a restrição de que os caminhos devem começar e terminar no depósito e todas as cidades intermediárias devem ser visitadas uma única vez. No caminho de cada caixeiro deve existir ao menos uma cidade além do depósito.
+
+O KP é um problema combinatório, que aloca espaço em uma mochila, com antecedência, de acordo com uma seleção de objetos. Assim, o valor total de todos os objetos escolhidos é maximizado na mochila. Lin (2007) \cite{lin2008solving} afirma que o KP é um problema muito frequente e que aparece no mundo real em diversos seguimentos, e.g., no planejamento econômico e na indústria, como problemas de carga, corte de estoque e empacotamento de lixo. Martello e Toth (1990) \cite{Martello:1990:KPA:98124} definem o problema do KP como um vetor $n$-objeto de variáveis binárias $x_i$ ($i = 1,…, n$), no qual o objeto $i$ tem um peso $w_i$ e a mochila tem uma capacidade $M$. Se uma fração $x_i$; $0 \leq xi \leq 1$ é colocado na mochila, então um lucro, $g_i x_i$, é o ganho. O KP visa encontrar uma combinação de objetos que maximize o lucro total de todos os objetos escolhidos na mochila. Enquanto a capacidade da mochila é $M$, o peso total de todos os objetos escolhidos deve ser no máximo $M$.
+
+Embora ter esses dois problemas associados não seja incomum, eles podem aparecer em cenários complexos. Por exemplo, a distribuição de medicamentos em grandes centros hospitalares pode ser vista como uma instância do MTSP-KP. Tanto a separação (KP) quanto a distribuição (MTSP) têm um alto número de combinações e, mesmo separadas, essas tarefas são difíceis de serem otimizadas, exigindo ferramentas sofisticadas para lidar com elas. Como garantidor da segurança do paciente, Ribeiro (2005) \cite{ribeiro_2005} explica que a logística hospitalar é um dos maiores desafios encontrados pelos gestores dos hospitais, principalmente no que diz respeito ao atendimento das necessidades organizacionais de forma rápida, correta e eficiente. Além disso, Souza et al. (2013) \cite{de2013logistica} explica que, para um hospital público no Brasil, em que o orçamento se restringe aos recursos financeiros disponibilizados pelo Sistema Único de Saúde (SUS), é fundamental que esses recursos sejam implantados com eficiência.
+
+Algumas abordagens, baseadas em métodos matemáticos e algoritmos evolutivos, são usadas para otimizar instâncias de MTSP e KP. É possível citar os seguintes exemplos: Algoritmo Genético - GA (HOLLAND, 1992) \cite{holland1992genetic}, \textit{Ant Colony Optimization} - ACO (DORIGO et al., 2008) \cite{dorigo2008particle} e \textit{Artificial Bee Colony} - ABC (KARABOGA, 2005) \cite{karaboga2005idea}. Essas abordagens visam resolver problemas de produção de aço (TANG et al., 2000) \cite{tang2000multiple}, distribuição de cigarros (LIU et al., 2009) \cite{liu2009ant}, ordens de serviço (BARBOSA; KASHIWABARA, 2015, 2016) \cite{barbosa2015aplicaccao, barbosa2016aplicaccao}, roteamento de redes de sensores (WANG et al., 2007) \cite{wang2007hierarchical}, entre outros.
+
+Não há relatos na literatura, até o presente momento, sobre o uso de processos de otimização global para melhorar o desempenho de meta-heurísticas implementadas para resolver o problema MTSP-KP. Assim, ainda há espaço para otimizar os parâmetros do MTSP-KP com algoritmos meta-heurísticos visando atingir objetivos específicos, especialmente quando é necessário balancear o tamanho das rotas e o número de entregas por caixeiro simultaneamente. Logo, este trabalho propõe uma metodologia para otimizar os parâmetros do MTSP através de otimizadores baseados em população global, e.g., algoritmos baseados em inteligência de enxame. Utilizamos como estudo de caso um processo de distribuição de medicamentos com múltiplas rotas.
+
+% ---
+\section{Motivação}
+\label{sec-motivacao}
+% ---
+
+Uma forma de resolver problemas combinatórios é simplesmente enumerar todas as soluções possíveis e guardar aquela de menor custo. Entretanto, essa é uma ideia ingênua pois para qualquer problema NP-Difícil, i.e., um problema útil e real, esse método torna-se impraticável, já que o conjunto de soluções possíveis é infinito. Mesmo que seja utilizado um supercomputador para resolver o problema, o tempo de processamento pode levar várias horas, ou vários dias ou até anos. Parece uma coisa absurda, mas o dia-a-dia está rodeado de problemas práticos dessa natureza. Os problemas aqui tratados são conhecidos tecnicamente por NP-difícil. Portanto, técnicas computacionais mais apuradas são necessárias para resolver esses problemas.
+
+Há uma infinidade de problemas da vida real que podem ser encarados como problemas de Otimização Combinatória. A Otimização Combinatória tem uma gama de aplicações possíveis como na resolução de problemas de Roteirização de Veículos, Ensalamento em Escolas e Universidades (\textit{Timetabling}), Escalonamento de Trabalho Humano, Escalonamento de Tarefas em Máquinas, Projeto de Circuitos Integrados, Projeto de Redes com Restrições de Conectividade, dentro outros citados por Papadimitriou e Steiglitz (1998) \cite{papadimitriou1982combinatorial}. Todavia, problemas do mundo real tendem a envolver vários objetivos que precisam ser resolvidos ao mesmo tempo, e que, em geral, são conflitantes entre si. Nestes casos, de acordo Branke et al. (2008) \cite{branke2008multiobjective}, com não será encontrada apenas uma única solução, mas sim varias soluções possíveis, que representarão uma curva, chamada de Soluções de Pareto, definida por Collette e Siarry (2013) \cite{collette2013multiobjective}.
+
+A resolução de um problema de otimização normalmente passa por duas fases. A primeira fase consiste em transformar o problema em um modelo. Posteriormente, na segunda fase, um algoritmo deve ser implementado para resolver o modelo. Nem sempre é possível encontrar a melhor solução de um problema de otimização em tempo razoável por meio de algoritmos exatos. Nesses casos, um bom candidato a solução pode ser suficiente para a aplicação que se tem em mãos. Os Métodos Heurísticos são algoritmos que não garantem encontrar a solução ótima de um problema, mas são capazes de retornar uma solução de qualidade em um tempo adequado para as necessidades da aplicação.
+
+Meta-heurísticas são paradigmas de desenvolvimento de algoritmos heurísticos. Diversas propostas de meta-heurísticas surgiram nos últimos anos impulsionadas pelos problemas pertencentes à classe NP-difícil. Dentre as meta-heurísticas mais conhecidas podemos destacar Algoritmos Genéticos (GA, \textit{Genetic Algorithms}), inspirados na evolução natural dos seres vivos; Otimização por Colônia de Formigas (ACO, \textit{Ant Colony Optimization}), algoritmos baseados no comportamento das formigas para encontrar comida; \textit{Simulated Annealing}, baseada originalmente em conceitos de Mecânica Estatística considerando a analogia entre o processo físico annealing de sólidos e a resolução de problemas de otimização combinatória; Busca Tabu, utiliza mecanismos de memória e diversificação das soluções como recursos para encontrar a solução ótima; e GRASP (\textit{Greedy Randomized Adaptive Search Procedures}), técnica baseada no paradigma da busca gulosa (ou míope).
+
+O algoritmo meta-heurístico FSS (\textit{Fish School Search}), criado por Bastos-Filho \cite{bastos2008novel}, foi introduzido em 2008 com o objetivo de abordar tarefas de otimização em espaços de busca multimodais. A principal vantagem deste algoritmo é a capacidade de autorregularão o trade-off entre exploração e exploração. Alguns resultados preliminares, publicados por Bastos-Filho (2009) \cite{bastos2009fish}, indicam que o FSS pode superar alguns dos algoritmos baseados em enxames em funções de benchmark com espaços de busca multimodais. Entretanto, não há variante do algoritmo que trate da resolução de problemas combinatórias.
+
+% ---
+\section{Objetivos}
+\label{sec-objetivos}
+% ---
+
+O problema de logística na distribuição de medicamentos em hospitais de grande porte apresenta múltiplos demandantes (farmácias menores) bem como múltiplos despachantes (entregadores), tendo um único depósito chamado de CAF – Centro de Abastecimento Farmacêutico. Logo, o problema pode ser abordado de três modos distintos: agrupando os demandantes e em seguida encontrando os caminhos para distribuição; encontrando os caminhos de distribuição primeiro e depois distribuindo os demandantes; ou realizando um processo de agrupamento e roteamento em conjunto. Para este trabalho será utilizado a primeira abordagem.
+
+Neste trabalho é proposto o uso de uma metodologia para resolução de problemas de MTSP, que visa a distribuição de medicamentos, otimizando a programação de percursos para a entrega. A partir de um cenário hospitalar, são construídas instâncias de MTSP. As posições das entregas a serem executadas representam as cidades da instância e os entregadores de pedidos representam os caixeiros.
+
+Estas instâncias são otimizadas pela abordagem TACO – \textit{Team Ant Colony Optimization}, algoritmo proposto por Vallivaara (2008) \cite{vallivaara2008team}, para distribuição de medicamentos a material hospitalar bem como os percursos a serem realizados pelos entregadores. As melhores soluções geradas pela TACO são utilizadas para definir a distribuição das ordens entre os entregadores e os percursos que devem ser realizados.
+
+Ao fim do processo de encontro das soluções, um otimizador global é utilizado, baseado em algoritmos de base populacional como os algoritmos de enxames. Esta associação visa otimizar soluções previamente encontradas em relação minimização do custo no deslocamento dos entregadores (minimização do tempo de entrega) bem como o balanceamento de atendimentos realizados por eles (maximização do número de atendimento).
+
+A abordagem TACO foi escolhida devido aos resultados encorajadores para o MTSP e vem sendo aplicado com sucesso para vários problemas NP-difíceis (problemas não polinomiais) de otimização combinatória; e a fim de explorar novas formas de aplicá-la ao MTSP. Também os algoritmos de enxames foram escolhidos devido as suas características de grande poder de otimização dos parâmetros inerentes ao TACO.
+
+A partir do problema exposto na seção anterior e da proposta acima descrita, esta pesquisa tem como objetivo fomentar os estudos escassos na resolução de problemas de logística voltados a área hospitalar e que possa contribuir para a melhoria da gestão. É objetivo também desta pesquisa contribuir com a resolução de problemas combinatórios como o MTSP e o campo dos métodos computacionais, como a Inteligência de Enxames.
+
+% ---
+\section{Estrutura da Dissertação}
+\label{sec-estrutura}
+% ---
+
+Esta dissertação está estruturada em 7 capítulos, iniciando neste Capítulo 1 com uma introdução sobre a proposta apresentada. No Capítulo 2, é introduzido uma descrição básica dos problemas TSP e KP e suas variantes. No Capítulo 3, é descrito alguns algoritmos baseados em inteligência de enxame para resolver problemas combinatórios. No Capítulo 4, é apresentado os trabalhos relacionados envolvendo algoritmos meta-heurísticos para resolver instâncias de MTSP e KP. No Capítulo 5, são explanados o modelo proposto, a instância do problema a ser otimizada e os cenários e suas configurações para minimizar a instância. No Capítulo 6, é apresentada uma discussão dos resultados otimizados fazendo uma comparação entre os otimizadores globais baseados em população. Finalmente, no Capítulo 7, o último deste trabalho, é destacado algumas conclusões sobre o modelo proposto e trabalhos futuros.
