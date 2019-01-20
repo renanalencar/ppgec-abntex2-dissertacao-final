@@ -1,0 +1,43 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}
+\babel@toc {brazil}{}
+\contentsline {chapter}{\'{I}ndice de Figuras}{vii}{section*.7}% 
+\contentsline {chapter}{\'{I}ndice de Tabelas}{viii}{section*.8}% 
+\contentsline {chapter}{Lista de s\'imbolos}{ix}{chapter*.10}% 
+\contentsline {chapter}{Tabela de S\'imbolos e Siglas}{x}{chapter*.12}% 
+\contentsline {chapter}{\chapternumberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{2}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Objetivos}{4}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Estrutura da Disserta\IeC {\c c}\IeC {\~a}o}{5}{section.1.3}% 
+\contentsline {chapter}{\chapternumberline {2}Problemas Combinat\IeC {\'o}rios}{6}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}O Problema do Caixeiro Viajante (TSP)}{7}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}O Problema da Mochila (KP)}{8}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Otimiza\IeC {\c c}\IeC {\~a}o e Problemas Multi-Objetivos}{9}{section.2.3}% 
+\contentsline {chapter}{\chapternumberline {3}Algor\IeC {\'\i }tmos Meta-Heur\IeC {\'\i }sticos e Intelig\IeC {\^e}ncia de Enxames}{11}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}ACO}{12}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}ACS}{14}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}TACO}{14}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}PSO}{15}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}FSS}{16}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}MOFSS}{17}{section.3.6}% 
+\contentsline {chapter}{\chapternumberline {4}Trabalhos Relacionados}{19}{chapter.4}% 
+\contentsline {chapter}{\chapternumberline {5}Uma Proposta de Otimiza\IeC {\c c}\IeC {\~a}o dos Par\IeC {\^a}metros do MTSP com Otimizadores Globais}{22}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}O Problema: distribui\IeC {\c c}\IeC {\~a}o de medicamentos}{23}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Par\IeC {\^a}metros a serem otimizados}{25}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Metodologia Experimental}{25}{section.5.3}% 
+\contentsline {subsection}{\numberline {5.3.1}Ambiente de Simula\IeC {\c c}\IeC {\~a}o}{25}{subsection.5.3.1}% 
+\contentsline {subsection}{\numberline {5.3.2}M\IeC {\'e}trica de Avalia\IeC {\c c}\IeC {\~a}o}{26}{subsection.5.3.2}% 
+\contentsline {subsection}{\numberline {5.3.3}Configura\IeC {\c c}\IeC {\~a}o dos experimentos}{26}{subsection.5.3.3}% 
+\contentsline {chapter}{\chapternumberline {6}Resultados}{27}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Resultados sem Otimizadores Globais}{27}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Resultados com Otimizadores Globais}{28}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Comparativo entre os experimentos}{30}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Tempos de Execu\IeC {\c c}\IeC {\~a}o dos Algoritmos}{32}{section.6.4}% 
+\contentsline {section}{\numberline {6.5}An\IeC {\'a}lise dos Resultados Parciais para o MOFSS-TACO}{32}{section.6.5}% 
+\contentsline {section}{\numberline {6.6}Discuss\IeC {\~a}o dos Resultados}{33}{section.6.6}% 
+\contentsline {chapter}{\chapternumberline {7}Conclus\IeC {\~a}o}{34}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Conclus\IeC {\~a}o}{34}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Trabalhos Futuros}{35}{section.7.2}% 
+\vspace {\cftbeforepartskip }
+\contentsline {chapter}{Refer\^encias}{36}{chapter*.16}% 
+\vspace {\cftbeforepartskip }

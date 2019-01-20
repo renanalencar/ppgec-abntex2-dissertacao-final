@@ -1,17 +1,17 @@
 \babel@toc {brazil}{}
 \babel@toc {brazil}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Problema do caixeiro-viajante}}{7}{figure.2.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Problema da mochila: Como maximizar o valor com um peso m\IeC {\'a}ximo?}}{8}{figure.2.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Dilema d reserva de um quarto de hotel em fun\IeC {\c c}\IeC {\~a}o de dois objetivos: pre\IeC {\c c}o e conforto.}}{9}{figure.2.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do experimento com formigas}}{13}{figure.3.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Modelo de otimiza\IeC {\c c}\IeC {\~a}o associado a um otimizador global (OG)}}{22}{figure.5.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica das farm\IeC {\'a}cias e o CAF num grande hospital}}{23}{figure.5.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Modelo representado em forma de grafo com as suas arestas contendo as dist\IeC {\^a}ncias}}{24}{figure.5.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Curva de converg\IeC {\^e}ncia quando minimizado o CTR}}{28}{figure.6.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Curva de converg\IeC {\^e}ncia quando minimizado RML}}{28}{figure.6.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Curva de converg\IeC {\^e}ncia FSS-TACO quando minimizado o CTR}}{29}{figure.6.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Curva de converg\IeC {\^e}ncia FSS-TACO quando minimizado a RML}}{29}{figure.6.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Curva de converg\IeC {\^e}ncia PSO-TACO quando minimizado o CTR}}{30}{figure.6.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Curva de converg\IeC {\^e}ncia PSO-TACO quando minimizado a RML}}{30}{figure.6.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre as converg\IeC {\^e}ncias de TACO, FSS-TACO e PSO-TACO}}{31}{figure.6.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Boxplot com os desvios padr\IeC {\~o}es da minimiza\IeC {\c c}\IeC {\~a}o do CTR e da RML}}{31}{figure.6.15}
+\contentsline {figure}{\numberline {1}{\ignorespaces Problema do caixeiro-viajante}}{7}{figure.2.1}% 
+\contentsline {figure}{\numberline {2}{\ignorespaces Problema da mochila: Como maximizar o valor com um peso m\IeC {\'a}ximo?}}{8}{figure.2.2}% 
+\contentsline {figure}{\numberline {3}{\ignorespaces Dilema de reserva de um quarto de hotel em fun\IeC {\c c}\IeC {\~a}o de dois objetivos: pre\IeC {\c c}o e conforto.}}{9}{figure.2.3}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces Ilustra\IeC {\c c}\IeC {\~a}o do experimento com formigas}}{13}{figure.3.4}% 
+\contentsline {figure}{\numberline {5}{\ignorespaces Modelo de otimiza\IeC {\c c}\IeC {\~a}o associado a um otimizador global (OG)}}{22}{figure.5.5}% 
+\contentsline {figure}{\numberline {6}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica das farm\IeC {\'a}cias e o CAF num grande hospital}}{23}{figure.5.6}% 
+\contentsline {figure}{\numberline {7}{\ignorespaces Modelo representado em forma de grafo com as suas arestas contendo as dist\IeC {\^a}ncias}}{24}{figure.5.7}% 
+\contentsline {figure}{\numberline {8}{\ignorespaces Curva de converg\IeC {\^e}ncia quando minimizado o CTR}}{28}{figure.6.8}% 
+\contentsline {figure}{\numberline {9}{\ignorespaces Curva de converg\IeC {\^e}ncia quando minimizado RML}}{28}{figure.6.9}% 
+\contentsline {figure}{\numberline {10}{\ignorespaces Curva de converg\IeC {\^e}ncia FSS-TACO quando minimizado o CTR}}{29}{figure.6.10}% 
+\contentsline {figure}{\numberline {11}{\ignorespaces Curva de converg\IeC {\^e}ncia FSS-TACO quando minimizado a RML}}{29}{figure.6.11}% 
+\contentsline {figure}{\numberline {12}{\ignorespaces Curva de converg\IeC {\^e}ncia PSO-TACO quando minimizado o CTR}}{30}{figure.6.12}% 
+\contentsline {figure}{\numberline {13}{\ignorespaces Curva de converg\IeC {\^e}ncia PSO-TACO quando minimizado a RML}}{30}{figure.6.13}% 
+\contentsline {figure}{\numberline {14}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre as converg\IeC {\^e}ncias de TACO, FSS-TACO e PSO-TACO}}{31}{figure.6.14}% 
+\contentsline {figure}{\numberline {15}{\ignorespaces Boxplot com os desvios padr\IeC {\~o}es da minimiza\IeC {\c c}\IeC {\~a}o do CTR e da RML}}{31}{figure.6.15}% 

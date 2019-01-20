@@ -4,7 +4,7 @@
 
 % FALTA AJUSTAR \subsubsubsection{Exemplo subsubsubsection}
 
-Os problemas de Otimização Combinatória, em geral, se resumem a encontrar, dentre todos os possíveis subconjuntos de soluções, aquela que cujo o custo seja o menor possível. Isto é, suponha-se que há um conjunto de itens e uma série de regras que podem ser usadas para selecionar alguns elementos (itens desse conjunto). Usando essas regras, há várias maneiras diferentes de escolher os elementos e criar outros conjuntos menores (subconjuntos). Se cada elemento estiver associado à um custo, os subconjuntos criados também terão um custo que é dado, por exemplo, pela soma dos custos de seus elementos.
+Os problemas de Otimização Combinatória, em geral, se resumem a encontrar, dentre todos os possíveis subconjuntos de soluções, aquela cujo o custo seja o menor possível. Isto é, suponha que há um conjunto de itens e uma série de regras que podem ser usadas para selecionar alguns elementos (itens desse conjunto). Usando essas regras, há várias maneiras diferentes de escolher os elementos e criar outros conjuntos menores (subconjuntos). Se cada elemento estiver associado à um custo, os subconjuntos criados também terão um custo que é dado, por exemplo, pela soma dos custos de seus elementos.
 
 Uma forma de resolver tais problemas seria simplesmente enumerar todas as soluções possíveis e guardar aquela de menor custo. Entretanto, essa é uma ideia ingênua pois para qualquer problema de um tamanho interessante (e útil), esse método torna-se impraticável, já que o número de soluções possíveis é muito grande. Mesmo que, para a resolução do problema, se utilize um supercomputador, haveria um custo computacional muito elevado.
 
@@ -81,9 +81,10 @@ Apesar do nome, o problema da mochila não é útil apenas na solução de probl
 Bastos-Filhos e Guimarães (2013) \cite{bastos2015multi} resumem o conceito de otimização como sendo “a busca por soluções para determinado problema (ou problemas) que o satisfaçam da melhor maneira possível”. Collette e Siarry (2013) \cite{collette2013multiobjective}, em seu livro “Multiobjective Optimization: Principles and Case Studies”, definem um problema de otimização como sendo a busca de um mínimo ou máximo (o ótimo) de uma função. O autor também descreve um caso específico de otimização chamado problema de otimização restrita. Este tipo ocorre quando problemas de otimização para os quais as variáveis da função a serem otimizadas são restritas para evoluir em uma área precisamente definida do espaço de pesquisa.
 
 \begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imagens/hotel-multi.eps}
-    \caption{Dilema d reserva de um quarto de hotel em função de dois objetivos: preço e conforto.} \label{fig:hotel-multi}
+	\centering
+	\caption{\label{fig:hotel-multi}Dilema de reserva de um quarto de hotel em função de dois objetivos: preço e conforto.} 
+	\includegraphics[width=0.5\textwidth]{imagens/hotel-multi.eps}
+	\legend{Fonte: o próprio autor.}
 \end{figure}
 
 Branke et al. (2008) \cite{branke2008multiobjective} explicam que um problema de otimização mono objetivo envolve uma única função objetivo (ou função fitness) e geralmente resulta em uma solução única, chamada de solução ótima. Por outro lado, uma tarefa de otimização multi-objetivo considera vários objetivos conflitantes simultaneamente. Nesse caso, geralmente não há solução ótima única, mas um conjunto de alternativas com diferentes compensações, chamadas de soluções ótimas de Pareto, ou soluções não dominadas.

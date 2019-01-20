@@ -4,8 +4,9 @@ O modelo proposto consiste em usar um algoritmo de base para calcular as melhore
 
 \begin{figure}[htb]
     \centering
+    \caption{\label{fig:proposal-diag}Modelo de otimização associado a um otimizador global (OG)}
     \includegraphics[width=0.75\textwidth]{imagens/proposal-diag.eps}
-    \caption{Modelo de otimização associado a um otimizador global (OG)} \label{fig:proposal-diag}
+    \legend{Fonte: o próprio autor.}
 \end{figure}
 
 Conforme mostrado na Figura \ref{fig:proposal-diag}, o Otimizador Global (OG) começa a gerar um conjunto de valores para os parâmetros do TACO. Neste caso, os parâmetros otimizados do TACO são $\alpha$, $\beta$, $\xi$ e $\rho$. Então, a TACO constrói um conjunto de melhores soluções baseadas nos parâmetros otimizados. Em seguida, o TACO retorna ao OG o conjunto das melhores soluções, que são avaliadas para o algoritmo meta-heurístico. Conforme as iterações acontecem, o OG mantém um registro do melhor conjunto de parâmetros, que foram encontrados até o momento. A execução termina quando o OG atinge o limite de iterações.
@@ -18,21 +19,23 @@ Conforme mostrado na Figura \ref{fig:proposal-diag}, o Otimizador Global (OG) co
 Uma CAF usualmente executa os pedidos de forma manual, tanto a separação da carga quanto o percurso estabelecido, independente do tempo gasto pelos entregadores. Devido à esta grande variação de tempo necessário no atendimento de pedidos, é difícil estabelecer uma capacidade para cada entregador, no intuito de mitigar os custos individuais dos percursos estabelecidos.
 
 A metodologia deste trabalho consiste na criação de instâncias de MTSP a partir do ambiente real hospitalar e na aplicação de algoritmos baseados no ACO para a construção otimizada de soluções na distribuição de medicamento entre os entregadores.
-
+%COLORIR IMAGEM PARA DESTACAR O PONTO EM VERMELHO
 Para este trabalho, foi desenvolvido uma instância MTSP tendo como base um hospital de grande porte, contendo farmácias satélites (FS) e uma CAF. Estas FSs estão distribuídas em diferentes blocos dentro do hospital e em diferente pavimentos. Na Figura \ref{fig:dataset-map} estão destacadas em preto as 16 farmácias em uma simulação para entregas durante o período diurno de um dia típico de trabalho. O ponto em vermelho está destacado a CAF, local onde os entregadores iniciam e concluem os seus percursos.
 
 \begin{figure}[htb]
     \centering
+    \caption{\label{fig:dataset-map}Representação gráfica das farmácias e o CAF num grande hospital} 
     \includegraphics[width=0.75\textwidth]{imagens/dataset-map.png}
-    \caption{Representação gráfica das farmácias e o CAF num grande hospital} \label{fig:dataset-map}
+    \legend{Fonte: o próprio autor}
 \end{figure}
 
-Já na Figura \ref{fig:dataset-graph} mostra o grafo com os vértices representando cada farmácia satélite incluindo o centro de distribuição representado pelo vértice $X_0$, com os respectivos custos em suas arestas, cada mensageiro sai do vértice $X_0$, realiza a rota determinada pelo algoritmo e retorna para o centro de distribuição, $X_0$. Neste grafo há 17 nós (vértices) sendo cada nó $n$ é interligado aos outros $17 - n$ nós. Além disso, para esta abordagem, o problema é considerado como estático, isto é, todos os pedidos são feitos até as 8h da manhã pelas outras farmácias não considerando pedidos feitos depois do tempo limite.
+Já na Figura \ref{fig:dataset-graph} mostra o grafo com os vértices representando cada farmácia satélite incluindo o centro de distribuição representado pelo vértice $V_1$, com os respectivos custos em suas arestas, cada mensageiro sai do vértice $V_1$, realiza a rota determinada pelo algoritmo e retorna para o centro de distribuição, $V_1$. Neste grafo há 17 nós (vértices) sendo cada nó $n$ é interligado aos outros $17 - n$ nós. Além disso, para esta abordagem, o problema é considerado como estático, isto é, todos os pedidos são feitos até as 8h da manhã pelas outras farmácias não considerando pedidos feitos depois do tempo limite.
 
 \begin{figure}[htb]
     \centering
+    \caption{\label{fig:dataset-graph}Modelo representado em forma de grafo com as suas arestas contendo as distâncias} 
     \includegraphics[width=0.75\textwidth]{imagens/dataset-graph.pdf}
-    \caption{Modelo representado em forma de grafo com as suas arestas contendo as distâncias} \label{fig:dataset-graph}
+    \legend{Fonte: o próprio autor.}
 \end{figure}
 
 Uma matriz, chamada matriz de custo, contém os dados de cada farmácia, como número de registro ($id$), latitude, longitude e sua distância. A matriz ajuda a calcular o custo da rota. Da mesma forma, outra matriz, chamada de matriz de dados, contém as ordens de entrega para cada nó no modelo construído. Cada pedido contém registros do remetente e da farmácia, as distâncias iniciais e finais, quando o remetente deixou o CAF e a duração do pedido. A matriz de dados ajuda a simular um dia de pedido no depósito. Além disso, há quatro entregadores para entregar os pedidos às farmácias.
@@ -42,6 +45,7 @@ Uma matriz, chamada matriz de custo, contém os dados de cada farmácia, como n�
 \label{sec-metodologia-parametros}
 % ---
 
+%CORRIGIR NÚMERO DE EQUIPES
 Como afirmado anteriormente, um otimizador global, baseado em inteligência de enxame, também é usado para melhorar os resultados do TACO, otimizando seus parâmetros. FSS, MOFSS e PSO são considerados como um otimizador global dos parâmetros TACO. Os valores padrão para o conjunto de parâmetros utilizados são: número de entregadores $M = 4$, número de equipes $N = 10$, probabilidade inicial $q_0 = 0,5$, relevância de feromônio $\alpha = 0,5$, relevância de visibilidade $\beta = 1,0$, persistência de feromônio para atualização local $\xi = 0,1$, persistência de feromônio para atualização global $\rho = 0,1$. Esses valores padrão foram obtidos por um teste de parâmetro. O critério de parada é de 1000 iterações para cada execução independente. Os otimizadores globais otimizam o subconjunto de parâmetros $P = \{\alpha, \beta, \xi, \rho\}$ em um intervalo de $0 \leq P \leq 2$.
 
 % ---
@@ -56,7 +60,7 @@ Os experimentos apresentados nesta seção têm como objetivo mostrar a eficáci
 \label{subsec-metodologia-experimento}
 % ---
 
-Todos os experimentos foram executados em um MacBook Pro (13 polegadas, final de 2011) com CPU Intel Core i5 de 2,4 GHz, 16 GB de RAM (1333 MHz DDR3) e sistema operacional MacOS High Sierra (versão 10.13.4). Usamos o banco de dados apresentado na Seção \ref{sec-metodologia-problema}. Em seguida, realizamos 30 execuções independentes dos algoritmos para cada experimento. O algoritmo TACO foi codificado em Java com base no algoritmo proposto por Valivaara (2007). O FSS é baseado na versão de Verçosa, Bastos-Filho e Monteiro (2017) \cite{verccosa2017combining}. O PSO de objetivo único foi retirado da estrutura do jMetal (DURILLO; NEBRO, 2011) \cite{durillo2011jmetal}. O MOFSS utilizado é baseado na versão de Bastos-Filho e Guimarães (2015) \cite{bastos2015multi} utilizando o jMetal como framework para visualizações.
+Todos os experimentos foram executados em um MacBook Pro (13 polegadas, final de 2011) com CPU Intel Core i5 de 2,4 GHz, 16 GB de RAM (1333 MHz DDR3) e sistema operacional MacOS High Sierra (versão 10.13.4). Usamos o banco de dados apresentado na Seção \ref{sec-metodologia-problema}. Em seguida, realizamos 30 execuções independentes dos algoritmos para cada experimento. O algoritmo TACO foi codificado em Java com base no algoritmo proposto por Valivaara (2007) e está disponível em \url{https://github.com/renanalencar/taco-mofss.git}. O FSS é baseado na versão de Verçosa, Bastos-Filho e Monteiro (2017) \cite{verccosa2017combining}. O PSO de objetivo único foi retirado da estrutura do jMetal (DURILLO; NEBRO, 2011) \cite{durillo2011jmetal}. O MOFSS utilizado é baseado na versão de Bastos-Filho e Guimarães (2015) \cite{bastos2015multi} utilizando o jMetal como framework para visualizações.
 
 O TACO desenvolvido por Valivaara foi utilizado por ter apresentado bons resultados na resolução de problemas do tipo MTSP durante experimentos prévios no desenvolvimento deste trabalho. O algoritmo foi codificado em Java para facilitar a integração com outras ferramentas já disponíveis e algoritmos utilizados como OGs. Já o FSS desenvolvido foi escolhido Verçosa, Bastos-Filho e Monteiro por ter como base a versão FSS Vanilla (disponível em \url{http://www.fbln.pro.br/fss/versions.htm}) e apresentar estruturação das classes compatível com os problemas da Conference on Commerce and Enterprise Computing (CEC). 
 
