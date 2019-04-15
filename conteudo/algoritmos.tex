@@ -9,7 +9,7 @@ Na IA, de acordo com Eberhart e Kennedy (2001) \cite{eberhart2001swarm}, o compo
 Há uma série algoritmos de otimização de problemas que abordam diferentes grupos de seres vivos, desde pássaros a vagalumes para resolver problemas de otimização. Engelbrecht (2006) \cite{engelbrecht2006fundamentals} exemplifica alguns problemas resolvidos pela IE como aproximação de funções, agrupamento, otimização de estruturas mecânicas, resolução de sistemas de equações, otimização de roteamento em redes de telecomunicações, coloração de grafos, programação e resolução do problema de atribuição quadrática, dentro outros. Os problemas aqui tratados são conhecidos tecnicamente por NP-difícil. Portanto, técnicas computacionais mais apuradas são necessárias para resolver esses problemas.
 
 
-Dentro da IE, há várias técnicas que abordam diferentes grupos de seres vivos desde pássaros a bactérias. Entretanto, este trabalho faz uso das seguintes abordagens: \textit{ Ant Colony Optimization} (ACO), \textit{Particle Swarm Optimization} (PSO) e \textit{Fish School Search} (FSS). O ACO, Otimização por Colônia de Formigas, tem a sociedade organizada das formigas como modelo para busca de alimentos através de rastros deixados pelas formigas. Já o PSO, Otimização por Enxame de Partículas, tem como inspiração os bandos de pássaro, tendo como a forma de voar em grupo na busca de alimento e mecanismo de interação social. Por fim, o FSS, Busca em Cardume de Peixes, tem no movimento do nado dos peixes a inspiração para proteção e busca de locais mais favoráveis para sobrevivência.
+Dentro da IE, há várias técnicas que abordam diferentes grupos de seres vivos desde pássaros a bactérias. Entretanto, este trabalho faz uso das seguintes abordagens: \textit{ Ant Colony Optimization} (ACO), \textit{Particle Swarm Optimization} (PSO) e \textit{Fish School Search} (FSS). O ACO, Otimização por Colônia de Formigas, tem a sociedade organizada das formigas como modelo para busca de alimentos através de rastros deixados pelas formigas. Já o PSO, Otimização por Enxame de Partículas, tem como inspiração os bandos de pássaro, tendo como a forma de voar em grupo na busca de alimento e mecanismo de interação social. Por fim, o FSS \cite{bastos2009fish}, Busca em Cardume de Peixes, tem no movimento do nado dos peixes a inspiração para proteção e busca de locais mais favoráveis para sobrevivência.
 
 % ---
 \section{ACO}
@@ -29,13 +29,13 @@ Como descreve Mulati, Constantino e da Silva (2013) \cite{mulati2013otimizaccao}
 \end{figure}
 
 
-As formigas conseguem obter um bom caminho entre dois pontos. Na primeira decisão após a inserção do obstáculo, as quantidades de formigas a escolher o caminho mais curto e o caminho mais longo devem ser aproximadamente a mesma, de modo que elas escolhem o caminho com base no feromônio encontrado, sendo que as probabilidades de ambos os lados devem ter valores próximos um do outro. Porém, na segunda decisão, as formigas que percorreram o caminho mais curto já estão voltando, depositando ainda mais feromônio, enquanto as que foram pelo caminho mais longo ainda estão completando a primeira transição. Desta forma, as formigas tendem a seguir caminho mais curto.
+As formigas conseguem obter um bom caminho entre dois pontos. Na primeira decisão após a inserção do obstáculo, as quantidades de formigas a escolher a rota mais curta e a mais longa devem ser aproximadamente a mesma, de modo que elas fazem suas escolhas com base no feromônio encontrado, sendo que as probabilidades de ambos os lados devem ter valores próximos um do outro. Porém, na segunda decisão, as formigas que percorreram o trajeto mais curto já estão voltando, depositando ainda mais feromônio, enquanto as que foram pelo perscurso mais longo ainda estão completando a primeira transição. Desta forma, as formigas tendem a seguir o mais curto.
 
 De forma análoga, um indivíduo da colônia artificial constrói soluções candidatas, começando com uma solução vazia e, em seguida, adicionando componentes solução de forma iterativa até uma solução candidata completa ser gerada. Após a construção da solução estar completa, as formigas dão feedback das soluções que elas construíram depositando feromônio nos componentes da solução que elas usaram em sua solução. Tipicamente, os componentes da solução que fazem parte de melhores soluções ou são usados por muitas formigas receberão uma maior quantidade de feromônio. Portanto, provavelmente estes componentes serão usados pelas formigas em iterações futuras do algoritmo. Para evitar que a busca fique estagnada, geralmente antes das trilhas de feromônio serem reforçadas, todas as trilhas de feromônio são diminuídas por um fator $\rho$.
 
 Em geral, todos os algoritmos ACO para combinação combinatória estática seguem um esquema algorítmico específico mostrado no Pseudocódigo \ref{alg:aco}. Após a inicialização das trilhas de feromônio e alguns parâmetros, um loop principal é repetido até uma condição de término - que pode ser um certo número de construções de soluções ou um determinado limite de tempo de CPU - é cumprido. No loop essencial, primeiro, as formigas constroem soluções viáveis, então as soluções geradas podem ser melhoradas pela aplicação busca local e, finalmente, as trilhas de feromônios são atualizados.
 
-\begin{algorithm}
+\begin{algorithm}[H]
 	\caption{Ant Colony Optimisation}\label{alg:aco}
 	\begin{algorithmic}[1]
 		\small
@@ -49,18 +49,57 @@ Em geral, todos os algoritmos ACO para combinação combinatória estática segu
 	\end{algorithmic}
 \end{algorithm}
 
+Na ACO, as soluções são geradas num processo iterativo no qual agentes inteligentes, as formigas, percorrem todas as
+cidades de uma instância de TSP, por exemplo, escolhendo a cada iteração a próxima cidade de sua rota de maneira
+estocástica através da Regra de Transição de Estado (RTE). A RTE \cite{dorigo1996any} do Ant Colony Optization é mostrada na Equação \ref{eq:aco-ret}:
+
+\begin{equation} \label{eq:aco-ret} 
+    p_i^k = \Bigg\{
+        \begin{tabular}{ll}
+        \(\frac{[\tau_{ij}(t)]^\alpha[\eta_{ij}]^\beta}{\sum{}^{}{[\tau_{ij}(t)]^\alpha[\eta_{ij}]^\beta}}\), & se $j$ é uma aresta permitida à $k$ \\
+        0, & caso contrário
+        \end{tabular}
+\end{equation}
+
+Na Equação \ref{eq:aco-ret}, que determina a probabilidade de um vértice ser escolhido por uma formiga, $i$ representa o vértice no qual a formiga $k$ se encontra, e $j$ um dos possíveis vértices para o qual ela pode se deslocar. Os vértices permitidos à formiga são aqueles ainda não visitados até a fase atual da construção da solução. Cada formiga armazena os nós já visitados em sua memória, que é denominada como lista tabu. $\tau_{ij}(t)$ corresponde à quantidade de feromônio presente na aresta entre os vértices $i$ e $j$ no instante $t$. $\eta_{ij}$ corresponde à visibilidade da aresta, que é definida pelo valor $1/c_{ij}$ , onde $c_{ij}$ é o custo de deslocamento da aresta. $\alpha$ e $\beta$ são parâmetros que definem o peso da trilha de feromônio e da visibilidade, respectivamente, na escolha do próximo vértice pela formiga \cite{dorigo1996any}.
+
 % ---
 \section{ACS}
 \label{sec-acs}
 % ---
 
-O algoritmo \textit{Ant Colony System}, ou Sistema de Colônia de Formigas, é  uma abordagem derivada da Otimização de Colônia de Formigas (ACO) também desenvolvida por Dorigo et al. (2006) \cite{dorigo2008particle}. O ACS difere do ACO em três pontos principais: utiliza uma Regra de Transação de Estado (RTE) mais agressiva; a Regra de Atualização do Feromônio (RAF) determina a evaporação e o depósito do feromônio nas arestas que fazem parte da melhor solução corrente, isto é, a melhor solução já encontrada até o momento em uma iteração; e a cada utilização de uma aresta, uma quantidade pré-definida de feromônio é removida. A proposta de remover o feromônio no ACS serve para aumentar a diversificação das soluções.
+O algoritmo \textit{Ant Colony System}, ou Sistema de Colônia de Formigas, é  uma abordagem derivada da Otimização de Colônia de Formigas (ACO) também desenvolvida por Dorigo et al. (2006) \cite{dorigo2008particle}. O ACS difere do ACO em três pontoss: utiliza uma RTE mais agressiva; a RAF (Regra de Atualização de fermônio) determina que a evaporação e o depósito de feromônio, ao final de cada ciclo, acontecem apenas nas arestas pertencentes à \textit{best-so-far solution}, ou seja, a melhor solução encontrada até o momento em uma execução do algoritmo; e, a cada vez que uma formiga utiliza uma aresta numa solução, uma quantidade pré-definida de feromônio é removida da aresta, para aumentar a exploração de caminhos alternativos. Outra diferençaa importante é em relação ao número $N$ de formigas que percorrem o grafo e constroem suas próprias soluções simultaneamente: enquanto no ACO o melhor valor encontrado experimentalmente é $N = n$, para o ACS o melhor valor encontrado é $N = 10$ \cite{dorigo2008particle}.
 
-As formigas inicialmente vagam aleatoriamente em torno de seu ambiente. Quando o alimento é localizado a formiga começa a disseminar o feromônio no ambiente. A adição do feromônio pelo caminho no decorrer de inúmeras viagens. Entretanto, os feromônios se deterioram no ambiente. Cada formiga deposita uma quantidade de feromônio que diminui de acordo com seu ranque.
+\begin{equation} \label{eq:acs-ret} 
+    j = \Bigg\{
+        \begin{tabular}{ll}
+        argmax\(_{l \in J_k} \{\tau_{il}[\eta_{il}]^\beta\}\), & if $q \leq q_0$ \\
+        J, & caso contrário
+        \end{tabular}
+\end{equation}
 
-Através de elitismo, faz uso de intensificação, escolhendo com maior probabilidade cidades promissoras. Assim, apenas a formiga com a melhor solução corrente (\textit{best-so-far}) deposita feromônio.
+A RTE do ACS está mostrada na equação 10, na qual $j$ representa a cidade escolhida por uma formiga $k$ que se encontra
+no vértice $i$ ao se movimentar. Esta equação é chamada de regra proporcional pseudo-aleatória, pois o parâmetro $q_0$ define a porcentagem das escolhas que serão feitas de forma determinística pelas formigas, onde $0 \leq q0 \leq 1$. Sendo q uma variável aleatória uniformemente distribuída em $[0, 1]$ e atualizada a cada movimento, se $q_0 = 1$, todas as escolhas das formigas serão realizadas de forma determinística, pelo valor máximo de $\tau_{il}[\eta_{il}]^\beta$, onde $l \in S_k^i$ corresponde ao conjunto de cidades permitidas à formiga no movimento. Se, ao contrário, $q_0 = 0$, todas as escolhas serão realizadas de forma estocástica, pois $J$ representa uma cidade escolhida através das probabilidades calculadas pela Equação \ref{eq:aco-ret}, com a única diferença que o parâmetro $\alpha$ foi excluído, ou seja, seu valor foi fixado em 1. O melhor valor definido experimentalmente é $q_0 = 0.9$, o que significa que 90\% das escolhas serão determinísticas \cite{dorigo2008particle}.
 
-A RAF do ACS define que a atualização de feromônio ocorre em dois momentos: uma atualização global, ao final de cada iteração do algoritmo; e uma atualização local, logo depois que uma formiga se move de uma cidade a outra, ou seja, inclui mais uma aresta na sua rota.
+De acordo com Dorigo et al \cite{dorigo2008particle}, a RAF do ACS define que a atualização de feromônio ocorre em dois momentos: uma atualização global, ao final de cada ciclo do algoritmo; e uma atualização local, logo depois que uma formiga se move de uma cidade a outra, ou seja, inclui mais uma aresta na sua rota. A regra para Atualização Global de Feromônio (AGF) está apresentada nas Equações \ref{eq:acs-agf1} e \ref{eq:acs-agf2}, onde $\rho$ é o coeficiente de persistência do feromônio, cujo melhor valor encontrado para o ACS é $\rho = 0.1$. $T^{bs}$ corresponde ao conjunto de arestas que fazem parte da melhor solução encontrada até o momento atual da execução do algoritmo e $C^{bs}$ corresponde ao custo de $T^{bs}$.
+
+\begin{equation} \label{eq:acs-agf1} 
+    \tau_{ij} = (1 - \rho)\tau_{ij} + \rho\Delta\tau_{ij}^{bs}, \forall (i,j) \in T^{bs}, 
+\end{equation}
+
+\begin{equation} \label{eq:acs-agf2} 
+    \Delta\tau_{ij}^{bs} = 1/C^{bs}
+\end{equation}
+
+A regra de Atualização Local de Feromônio (ALF) \cite{dorigo2008particle} está apresentada na Equação \ref{eq:acs-alf}, na qual $\xi$ é um parâmetro cujo melhor valor experimentalmente calculado é $\xi = \rho = 0.1$. $\tau_0$ também é um parâmetro que, além de ser utilizado na atualização local de feromônio, também corresponde à quantidade de feromônio depositada em todas as arestas no início da execução do algoritmo. O melhor valor encontrado para $\tau_0$ é calculado a partir do custo de uma solução criada aplicando um algoritmo do vizinho mais próximo à instância em análise. A fórmula para cálculo de $\tau_0$ é mostrada na Equação \ref{eq:acs-tau}, na qual $n$ é igual ao número de cidades da instância e $C^{nn}$ é igual ao custo da solução obtido utilizando um algoritmo do vizinho mais próximo sobre a instância.
+
+\begin{equation} \label{eq:acs-alf} 
+    \tau_{ij} = (1 - \xi)\tau_{ij} + \xi\tau_0,
+\end{equation}
+
+\begin{equation} \label{eq:acs-tau} 
+    \tau_0 = 1/nC^{nn}
+\end{equation}
 
 % ---
 \section{TACO}
@@ -69,18 +108,18 @@ A RAF do ACS define que a atualização de feromônio ocorre em dois momentos: u
 
 A Otimização de Colônia de Formigas (TACO), proposta por Vallivaara (2008) \cite{vallivaara2008team}, é baseada no ACS para resolver instâncias de MTSP. Essa generalização básica é feita substituindo as $N$ formigas ACS, que constroem soluções para o TSP, com $N$ equipes de $m$ membros. Uma equipe de formigas representa um vendedor na construção da solução MTSP e cada equipe tem sua lista de tabu.
 
-Todas as formigas de cada equipe são colocadas no depósito no início da construção da rota. Para distribuir a carga de trabalho, uma formiga com a rota parcial mais curta escolhe sua próxima cidade j, em qualquer momento do processo de construção, de acordo com a equação da Regra de Estado de Transição (RET), conforme mostrado em \ref{eq:taco-ret}.
+Todas as formigas de cada equipe são colocadas no depósito no início da construção da rota. Para distribuir a carga de trabalho, uma formiga com a rota parcial mais curta escolhe sua próxima cidade $j$, em qualquer momento do processo de construção, de acordo com a equação da Regra de Estado de Transição (RET), conforme mostrado em \ref{eq:taco-ret}.
 
 \begin{equation} \label{eq:taco-ret} 
     j = \Bigg\{
         \begin{tabular}{ll}
         argmax\(_{l \in J_k} \{\tau_{il}[\eta_{il}]^\beta\}\), & if $q \leq q_0$ \\
-        J, & caso contrário;
+        J, & caso contrário
         \end{tabular}
 \end{equation}
 
 %PARAFRASEAR ESTE PARAGRAFO
-Depois de escolher a cidade seguinte, verifica-se se outra formiga poderia adicionar a cidade escolhida à sua rota e acabar com uma melhor duração total da rota. Se assim for, essa formiga pode fazer seu primeiro movimento não escolhendo $j$. Esse ponto de verificação evita que o algoritmo force soluções não ideais.
+Depois de escolher a cidade seguinte, verifica-se se outra formiga $k + 1$ poderia adicionar a cidade escolhida à sua rota e acabar com uma melhor duração total da rota. Se assim for, essa mesma formiga $k + 1$ pode fazer seu primeiro movimento não escolhendo $j$. Esse ponto de verificação evita que o algoritmo force soluções não ideais.
 
 TACO tem vários parâmetros que são responsáveis pelo seu comportamento durante a construção de soluções. A probabilidade inicial q0 determina se a inicialização das formigas tem apenas escolhas determinísticas ou aleatórias $(0 < q_0 <1)$. Os parâmetros de feromônio $\alpha$ e $\beta$ definem o peso da trilha de feromônio e a visibilidade, respectivamente, na escolha do próximo nó pela formiga. O parâmetro $\xi$ controla a persistência do feromônio quando a Regra de Atualização de Feromônio (RAF) ocorre localmente, logo após uma formiga se mover de uma cidade para outra, ou seja, inclui mais uma borda em sua rota. Da mesma forma, $\rho$ regula a persistência de feromônios para RAF global, ou seja, no final de cada ciclo do algoritmo.
 
