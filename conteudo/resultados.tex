@@ -8,6 +8,8 @@ O primeiro conjunto de experimentos foi realizado para minimizar o Custo Total d
 
 O segundo conjunto de experimentos visou minimizar a Rota Mais Longa (RML) das soluções mantendo os mesmos valores dos parâmetros no primeiro cenário. Esse caso é adequado para situações reais quando priorizamos o equilíbrio entre as rotas individuais (\textit{workbalance}) em vez da soma total das rotas.
 
+Os resultados mostrados aqui são referentes ao experimentos somente envolvendo o MTSP (\textit{Multiple Travelling Salesmen Problem}). O tratamento subsequente para soluções envolvendo tanto o MTSP quanto KP (\textit{Knapsack Problem}) não foi tratado nestes experimento devido a ajustes que entrarão na continuação deste trabalho.
+
 % ---
 \section{Resultados sem Otimizadores Globais}
 \label{sec-resultados-taco}
@@ -15,7 +17,7 @@ O segundo conjunto de experimentos visou minimizar a Rota Mais Longa (RML) das s
 
 Foi utilizado a abordagem TACO com regras do ACS para otimização da instância vista na Seção 5 para quatro entregadores. Foram realizados dois experimentos: minimização do custo total das soluções e minimização da maior rota individual das soluções.
 
-A Tabela \ref{tab:resultado-taco} mostra o tempo médio de execução do algoritmo (em horas) para a instância. Este valor foi obtido a partir da média do tempo gasto para executar os 1000 ciclos TACO nas 30 execuções do algoritmo, por um dia útil.
+A Tabela \ref{tab:resultado-taco} mostra a distância média de execução do algoritmo (em quilômetros) para a instância. Este valor foi obtido a partir da média da distância encontrada (tanto para Custo Total de Rotas - CTR quanto para Rota Mais Longa - RML) nos 1000 ciclos TACO e nas 30 execuções do algoritmo, por um dia útil. Os resultados provam a robustez dao algoritmo é minimizar os resultados para CTR e RML.
 
 \begin{table}[htb]
     \centering
@@ -24,8 +26,8 @@ A Tabela \ref{tab:resultado-taco} mostra o tempo médio de execução do algorit
 \hline
 \multicolumn{8}{|c|}{Média de 30 simulações com 1000 iterações}                                                            \\ \hline
 \multicolumn{4}{|c|}{Minimizando o Custo Total das Rotas (CTR)} & \multicolumn{4}{c|}{Minimizando a Rota Mais Longa (RML)} \\ \hline
-CTR           & D.P.          & RML            & D.P.           & CTR           & P.D.         & RML         & D.P.        \\ \hline
-1,8           & 0,25          & 0,721          & 0,003          & 1,223         & 0,050        & 0,756       & 0,012       \\ \hline
+CTR (km)    & D.P.  & RML (km)  & D.P.      & CTR (km)  & P.D.      & RML (km)  & D.P.        \\ \hline
+1,8         & 0,25  & 0,721     & 0,003     & 1,223     & 0,050     & 0,756     & 0,012       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -57,8 +59,8 @@ Os experimentos realizados com o otimizador externo mostraram melhores resultado
 \hline
 \multicolumn{8}{|c|}{Média de 30 simulações com 1000 iterações}                                                            \\ \hline
 \multicolumn{4}{|c|}{Minimizando o Custo Total das Rotas (CTR)} & \multicolumn{4}{c|}{Minimizando a Rota Mais Longa (RML)} \\ \hline
-CTR             & D.P.           & RML           & D.P.         & CTR          & D.P.         & RML          & D.P.        \\ \hline
-1,0797          & 0,002          & 0,747         & 0            & 1,944        & 0,335        & 0,719        & 0,001       \\ \hline
+CTR (km)    & D.P.   & RML (km)  & D.P.  & CTR (km)  & D.P.     & RML (km)  & D.P.        \\ \hline
+1,0797      & 0,002  & 0,747     & 0     & 1,944     & 0,335    & 0,719     & 0,001       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -83,8 +85,8 @@ PSO também teve melhores resultados em comparação com abordagem TACO sem otim
 \hline
 \multicolumn{8}{|c|}{Média de 30 simulações com 1000 iterações}                                                            \\ \hline
 \multicolumn{4}{|c|}{Minimizando o Custo Total das Rotas (CTR)} & \multicolumn{4}{c|}{Minimizando a Rota Mais Longa (RML)} \\ \hline
-CTR            & D.P.           & RML           & D.P.          & CTR          & D.P.         & RML          & D.P.        \\ \hline
-1,115          & 0,032          & 0,750         & 0,003         & 2,048        & 0,333        & 0,720        & 0,005       \\ \hline
+CTR (km)    & D.P.   & RML (km)  & D.P.   & CTR (km)  & D.P.     & RML (km)  & D.P.        \\ \hline
+1,115       & 0,032  & 0,750     & 0,003  & 2,048     & 0,333    & 0,720     & 0,005       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -123,7 +125,7 @@ Todos os resultados anteriores são compilados na Tabela \ref{tab:resultado-comp
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
 \multirow{2}{*}{Abordagem} & \multicolumn{4}{l|}{Minimizando o CTR}           & \multicolumn{4}{l|}{Minimizando a RML}          \\ \cline{2-9} 
-                            & CTR             & D.P.           & RML   & D.P.  & CTR   & D.P.  & RML            & D.P.           \\ \hline
+                            & CTR (km)             & D.P.           & RML (km)   & D.P.  & CTR (km)   & D.P.  & RML (km)            & D.P.           \\ \hline
 TACO                       & 1,8             & 0,25           & 0,721 & 0,003 & 1,223 & 0,050 & 0,756          & 0,012          \\ \hline
 FSS-TACO                   & \textbf{1.0797} & \textbf{0.002} & 0,747 & 0     & 1,944 & 0,335 & \textbf{0.719} & \textbf{0.001} \\ \hline
 PSO-TACO                   & 1,115           & 0,032          & 0,750 & 0,003 & 2,048 & 0,333 & 0,720          & 0,005          \\ \hline
@@ -132,7 +134,7 @@ PSO-TACO                   & 1,115           & 0,032          & 0,750 & 0,003 & 
 
 A Figura \ref{fig:resultados-boxplot} mostra o desvio padrão para ambos os CTR e RML. Ao minimizar o CTR, podemos notar que os resultados do TACO variam mais do que o FSS e PSO. Por outro lado, PSO tem a menor variação de seus resultados. Ao minimizar a RML, vale ressaltar que para todas as abordagens (TACO, FSS e PSO) existe uma pequena ou nenhuma variação entre seus resultados.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
     \caption{Boxplot com os desvios padrões da minimização do CTR e da RML} \label{fig:resultados-boxplot}
     \includegraphics[width=\textwidth]{imagens/boxplot-approaches.eps}
@@ -143,20 +145,23 @@ A Figura \ref{fig:resultados-boxplot} mostra o desvio padrão para ambos os CTR 
 \label{sec-resultados-tempo}
 % ---
 
-A Tabela \ref{tab:resultado-tempo} apresenta o tempo médio de execução do algoritmo para cada instância. Este valor foi obtido a partir da média do tempo gasto para execução dos 1000 ciclos de cada abordagem nas 30 execuções independente do algoritmo.
+A Tabela \ref{tab:resultado-tempo} apresenta o tempo médio de execução do algoritmo para cada instância. Este valor foi obtido a partir da média do tempo (em milissegundos) gasto para execução dos 1000 ciclos de cada abordagem nas 30 execuções independente do algoritmo.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[htb]
     \centering
     \caption{Tempo médio de execução de 1.000 ciclos de TACO, FSS-TACO e PSO-TACO} \label{tab:resultado-tempo}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \multirow{2}{*}{Abordagem} & Minimizando o CTR & Minimizando a RML \\ \cline{2-3} 
-                               & Tempo Médio (ms)  & Tempo Médio (ms)  \\ \hline
-    TACO                       & 618,53            & 609,73            \\ \hline
-    FSS-TACO                   & 16.945.914,10       & 15.701.984,33       \\ \hline
-    PSO-TACO                   & 5.218.562,20        & 5.161.234,17        \\ \hline
+    \multirow{2}{*}{Abordagem} & \multicolumn{2}{c|}{Minimizando o CTR} & \multicolumn{2}{c|}{Minimizando a RML}          \\ \cline{2-5} 
+                               & Média em ms & Média em horas  & Média em ms & Média em horas  \\ \hline
+    %TACO                       & 618,53     &T       & 609,73 &T            \\ \hline
+    TACO                       & $6,185 \times 10^2$     &$0,017 \times 10^{-2}$       & $6,097 \times 10^2$ &$0,0169 \times 10^{-2}$            \\ \hline
+    %FSS-TACO                   & 16.945.914,10  &T     & 15.701.984,33 &T      \\ \hline
+    FSS-TACO                   & $1,695 \times 10^7$  &4,707     & $1,570 \times 10^7$ &4,362      \\ \hline
+    %PSO-TACO                   & 5.218.562,20   &T     & 5.161.234,17    &T    \\ \hline
+    PSO-TACO                   & $5,21856220 \times 10^6$  &1,450     & $5,161 \times 10^6$    &1,434    \\ \hline
     \end{tabular}
 \end{table}
 
@@ -175,10 +180,10 @@ Os resultados para o MOFSS sendo o OG do algoritmo base (ver Tabela \ref{tab:res
     \caption{Resultados para TACO com MOFSS sendo o Otimizador Global} \label{tab:resultado-mofss}
     \begin{tabular}{|c|c|c|c|}
     \hline
-    \multicolumn{4}{|c|}{Média de 10 simulações com 1000 iterações} \\ \hline
+    \multicolumn{4}{|c|}{Média de 30 simulações com 1000 iterações} \\ \hline
     \multicolumn{4}{|c|}{Minimizando CTR e RML}                     \\ \hline
     CTR            & D.P.          & RML            & D.P.          \\ \hline
-    1,435          & 0,29          & 0,731          & 0,011         \\ \hline
+    1,398          & 0,279         & 0,732          & 0,011         \\ \hline
     \end{tabular}
     \end{table}
 
