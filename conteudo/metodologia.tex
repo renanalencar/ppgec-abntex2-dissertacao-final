@@ -16,7 +16,14 @@ Conforme mostrado na Figura \ref{fig:proposal-diag}, o Otimizador Global (OG) co
 \label{sec-metodologia-problema}
 % ---
 
-Uma CAF (Central de Abastecimento Farmacêutico) usualmente executa os pedidos de forma manual, tanto a separação da carga quanto o percurso estabelecido, independente do tempo gasto pelos entregadores. Devido à esta grande variação de tempo necessário no atendimento de pedidos, é difícil estabelecer uma capacidade para cada entregador, no intuito de mitigar os custos individuais dos percursos estabelecidos.
+Uma CAF (Central de Abastecimento Farmacêutico) usualmente executa os pedidos de forma manual, tanto a separação da carga quanto o percurso estabelecido, independente do tempo gasto pelos entregadores (ver Figura \ref{fig:caf-fluxograma}). Devido à esta grande variação de tempo necessário no atendimento de pedidos, é difícil estabelecer uma capacidade para cada entregador, no intuito de mitigar os custos individuais dos percursos estabelecidos.
+
+\begin{figure}[htb]
+    \centering
+    \caption{\label{fig:caf-fluxograma}Fluxograma do processo de pedido, separação e entrega da CAF.} 
+    \includegraphics[width=0.75\textwidth]{imagens/fluxograma.png}
+    \legend{Fonte: o próprio autor}
+\end{figure}
 
 A metodologia deste trabalho consiste na criação de instâncias de MTSP a partir do ambiente real hospitalar e na aplicação de algoritmos baseados no ACO para a construção otimizada de soluções na distribuição de medicamento entre os entregadores.
 %COLORIR IMAGEM PARA DESTACAR O PONTO EM VERMELHO

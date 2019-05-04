@@ -68,7 +68,7 @@ Na Equação \ref{eq:aco-ret}, que determina a probabilidade de um vértice ser 
 \label{sec-acs}
 % ---
 
-O algoritmo \textit{Ant Colony System}, ou Sistema de Colônia de Formigas, é  uma abordagem derivada da Otimização de Colônia de Formigas (ACO) também desenvolvida por Dorigo et al. (2006) \cite{dorigo2008particle}. O ACS difere do ACO em três pontoss: utiliza uma RTE mais agressiva; a RAF (Regra de Atualização de fermônio) determina que a evaporação e o depósito de feromônio, ao final de cada ciclo, acontecem apenas nas arestas pertencentes à \textit{best-so-far solution}, ou seja, a melhor solução encontrada até o momento em uma execução do algoritmo; e, a cada vez que uma formiga utiliza uma aresta numa solução, uma quantidade pré-definida de feromônio é removida da aresta, para aumentar a exploração de caminhos alternativos. Outra diferençaa importante é em relação ao número $N$ de formigas que percorrem o grafo e constroem suas próprias soluções simultaneamente: enquanto no ACO o melhor valor encontrado experimentalmente é $N = n$, para o ACS o melhor valor encontrado é $N = 10$ \cite{dorigo2008particle}.
+O algoritmo \textit{Ant Colony System}, ou Sistema de Colônia de Formigas, é  uma abordagem derivada da Otimização de Colônia de Formigas (ACO) também desenvolvida por Dorigo et al. (2006) \cite{dorigo2008particle}. O ACS difere do ACO em três pontoss: utiliza uma RTE mais agressiva; a RAF (Regra de Atualização de feromônio) determina que a evaporação e o depósito de feromônio, ao final de cada ciclo, acontecem apenas nas arestas pertencentes à \textit{best-so-far solution}, ou seja, a melhor solução encontrada até o momento em uma execução do algoritmo; e, a cada vez que uma formiga utiliza uma aresta numa solução, uma quantidade pré-definida de feromônio é removida da aresta, para aumentar a exploração de caminhos alternativos. Outra diferençaa importante é em relação ao número $N$ de formigas que percorrem o grafo e constroem suas próprias soluções simultaneamente: enquanto no ACO o melhor valor encontrado experimentalmente é $N = n$, para o ACS o melhor valor encontrado é $N = 10$ \cite{dorigo2008particle}.
 
 \begin{equation} \label{eq:acs-ret} 
     j = \Bigg\{
@@ -118,7 +118,7 @@ A única diferença entre o ACS e o TACO com $m = 1$ é que no primeiro as formi
         \end{tabular}
 \end{equation}
 
-Durante a fase de inicialização, o nível de fermônio é ajustado para $\tau_0 = 1 / nC^{nn}$ em cada aresta, como sugerido no ACS. Antes de começar a construção da rota, todos os nós são configurados como não-visitados por cada equipe. Em seguida, cada membro $m$ de uma equipe $N_i$ é colocado na cidade inicial correspondente $v_k$, e todas as cidades iniciais são marcadas como visitadas para este mesmo time \cite{vallivaara2008team}.
+Durante a fase de inicialização, o nível de feromônio é ajustado para $\tau_0 = 1 / nC^{nn}$ em cada aresta, como sugerido no ACS. Antes de começar a construção da rota, todos os nós são configurados como não-visitados por cada equipe. Em seguida, cada membro $m$ de uma equipe $N_i$ é colocado na cidade inicial correspondente $v_k$, e todas as cidades iniciais são marcadas como visitadas para este mesmo time \cite{vallivaara2008team}.
 
 Estando uma formiga $k$ posicionada em um vértice $v_k$; sendo $v_0$ o depósito da instância; $c(v_i, v_j)$ o
 custo de deslocamento entre dois vértices $v_i$ e $v_j$ quaisquer; o Custo Parcial total $CP(k)$ da rota já percorrida pela formiga $k$; e tendo sido escolhido o vértice $v_j$ como seu próximo vértice de acordo com a equação \ref{eq:taco-ret}; o método consiste em verificar, antes da formiga de mover, se existe qualquer outra formiga $l$ da instância que respeite a inequação \ref{eq:taco-custo-parcial}. Se houver, então é permitido que a formiga $l$ escolha seu próximo vértice novamente de acordo com a RET presente em \ref{eq:taco-ret}, e se movimente para o novo vértice escolhido \cite{vallivaara2008team}.
@@ -253,6 +253,88 @@ A \textit{Multi-Objective Fish School Search} (MOFSS) é uma generalização FSS
 
 No movimento individual, o peixe sempre se move em direção a novas posições, mesmo que sejam piores que as anteriores ou as posições sejam indiferentes, considerando o critério de dominância. Soluções no EA levam os movimentos individuais. Para cada peixe, um guia é selecionado usando o operador de seleção de líder. A seleção é executada por um torneio que seleciona dois peixes e executa uma seleção aleatória para retornar um guia.
 
-O movimento volitivo multi-objetivo leva o conjunto de soluções não dominadas da EA como pontos de referência para contratar ou expandir a escola, enquanto o FSS usa o baricentro escolar para determinar esses pontos. Cada peixe da escola seleciona um líder, usando o operador de seleção de líderes, e se move em direção a ele. Assim, os peixes tendem a se mover para as soluções não dominadas.
+A nova posição do pexei é calculada através da Equação \ref{eq:mofss-movimento}:
+
+\begin{equation} \label{eq:mofss-movimento}
+    \vec{n}_{i}(t) = \vec{x}_{i}(t) + \Delta\vec{x}_{i}(t)
+\end{equation}
+
+Em que $\vec{x}_{i}(t)$ é a posição atual do peixe $i$, $\vec{n}_{i}(t) $ é a nova posição e $\Delta\vec{x}_{i}(t)$ é o deslocamento, calculado através da Equação \ref{eq:mofss-deslocamento}:
+
+\begin{equation} \label{eq:mofss-deslocamento}
+    \Delta\vec{x}_{i}(t) = S_{ind}(t) \times U[0,1] \times \frac{\vec{x}_{g}(t) - \vec{x}_{i}(t)}{DIST[\vec{x}_{g}(t), \vec{x}_{i}(t)]}
+\end{equation}
+
+Onde $S_{ind}(t)$ é o passo individual, $U[0,1]$ é uma distribuição uniforme aleatória entre 0 e 1 e $DIST[\vec{x}_{g}(t), \vec{x}_{i}(t)]$ é uma função que calcula a distância euclidiana.
+
+O operador de alimentação é quem define o conhecimento do cardume, atualizando o peso de cada peixe conforme seu movimento individual e, consequentemente, atualizando o peso total do cardume. Diferentemente da versão mono-objetiva do FSS (\textit{Fish School Search}), nesta abordagem há varios objetivos conflitantes entre si e por isso é preciso utilizar um conceito de dominância para determinar qual e a melhor solução \cite{bastos2015multi}. Para tanto, é necessário possuir dois elementos, a posição atual do peixe $x_{i}(t)$ e a nova posição do peixe $n_{i}(t)$, determinada pelo operador de de movimento individual \cite{bastos2015multi}.
+
+Para determinar se o peixe ira sofrer um aumento ou um diminuição de peso, foi introduzido a verificação do valor de \textit{Crowding Distance} da solução do arquivo externo que está mais proxima da posição atual do peixe e da solução do arquivo externo que esta mais proxima da nova posição deste \cite{bastos2015multi}.
+
+Um fator de grau de domínio $D_{i}(t)$ também foi introduzido ao cálculo do peso do peixe. Este grau de domínio é determinado através da análise da quantidade de soluções que um peixe domina e da quantidade de soluções que dominam este mesmo peixe. Com isso, cria-se uma variável que prioriza o aumento do peso dos peixes que estão mais próximos do arquivo externo e penaliza os que se encontram mais distantes \cite{bastos2015multi}.
+
+O fator de dominânia $D_{i}(t)$ é cálculo de acordo com a Equação \ref{eq:mofss-dominio}:
+
+\begin{equation} \label{eq:mofss-dominio}
+    D_{i}(t) = 1 - \frac{R_{i}}{MaxR}
+\end{equation}
+
+em que $R(i)$ representa a aptidão (ou \textit{fitness}) bruta do peixe e $MaxR$ é o máximo valor de aptidão bruta encontrado na iteração. A aptidão bruta $R(i)$ é calculado através da equação Equação \ref{eq:mofss-aptidao-bruta}, 
+
+\begin{equation} \label{eq:mofss-aptidao-bruta}
+    R_{i} = \sum_{j \in N, j \prec i} S(j)
+\end{equation}
+
+onde $S(j)$ é um valor de forçaa e representa o número de soluções que peixe $j$ domina, calculado conforme a Equação \ref{eq:mofss-forca}:
+
+\begin{equation} \label{eq:mofss-forca}
+    S(i) = |{j | j \in N \wedge i \prec j}|
+\end{equation}
+
+Depois do cálculo do grau de domínio, cada peixe tem seu valor de peso atualizado conforme a Equação \ref{eq:mofss-alimentacao}:
+
+\begin{equation} \label{eq:mofss-alimentacao}
+    w_{i}(t + 1) = w_{i} + \Delta w_{i}(t) \times D_{i}(t)
+\end{equation}
+
+E o peso total do cardume na iteração atual é calculado através da Equação \ref{eq:mofss-pesocardume}:
+
+\begin{equation} \label{eq:mofss-pesocardume}
+    w(t + 1) = \sum_{i=1}^{N} w_{i}(t+1)
+\end{equation}
+
+O movimento volitivo multi-objetivo leva o conjunto de soluções não dominadas da EA (Arquivo Externo) como pontos de referência para contratar ou expandir o cardume, enquanto o FSS usa o baricentro escolar para determinar esses pontos. Cada peixe da escola seleciona um líder, usando o operador de seleção de líderes, e se move em direção a ele. Assim, os peixes tendem a se mover para as soluções não dominadas \cite{bastos2015multi}.
+
+O operador de movimento coletivo instintivo é responsável por fazer o cardume sofrer um deslocamento, influenciado pelo desempenho geral obtido por cada peixe em seu operador de movimento individual. Dois modos distintos são utilizados para determinar o vetor de influência coletiva instintiva. No primeiro modo, este vetor é calculado (ver Equação \ref{eq:mofss-institivo-i}) igualmente para todo o cardume, ou seja, todos os peixes possuem o mesmo valor de infuência:
+
+\begin{equation} \label{eq:mofss-institivo-i}
+    \vec{I}(t) = \sum_{i=1}^{N} \frac{\Delta w_{i}(t) \times \Delta \vec{x}_{i}(t)}{MAX[1, (\Delta w)]}
+\end{equation}
+
+Já na segunda opção, cada peixe tem um vetor de influência determinado individualmente (ver Equação \ref{eq:mofss-institivo-ii}), como base no seu ganho de peso na iteração atual:
+
+\begin{equation} \label{eq:mofss-institivo-ii}
+    \vec{I}(t) = S_{vol}(t) \times U[0,1] \times \Delta w_{i}(t) \frac{\vec{x}_{i}(t) - \vec{x}_{g}(t)}{DIST[\vec{x}_{i}(t), \vec{x}_{g}(t)]}
+\end{equation}
+
+Sendo as posições dos peixes atualizados através da Equação \ref{eq:mofss-institivo-iii} em ambas abordagens.
+
+\begin{equation} \label{eq:mofss-institivo-iii}
+    \vec{x}_{i}(t + 1) = \vec{x}_{i}(t) + \vec{I}(t)
+\end{equation}
+
+Por fim, o operador de movimento coletivo volitivo determina se o cardume deve se movimentar para realizar uma busca em amplitude ou uma busca em profundidade. Para tanto é calculado um vetor de influência volitiva (ver Equação \ref{eq:mofss-volitivo-i}), que é adicionado a cada peixe do cardume, fazendo que eles se desloquem para uma nova posição \cite{bastos2015multi}.
+
+\begin{equation} \label{eq:mofss-volitivo-i}
+    V_{i}(t) = S_{vol}(t) \times SINAL(\Delta w) \times U[0,1]
+\end{equation}
+
+onde $SINAL(\Delta w)$ é uma função que determina o sinal dos valores informados, retornando 1 caso o valor seja positivo ou -1 caso o valor seja negativo.
+
+Como consequência, as posições dos peixes atualizados através da Equação \ref{eq:mofss-volitivo-ii}.
+
+\begin{equation} \label{eq:mofss-volitivo-ii}
+    \vec{x}_{i}(t + 1) = \vec{x}_{i}(t) + V_{i}(t) \times \frac{\vec{x}_{i}(t) - \vec{x}_{g}(t)}{DIST[\vec{x}_{i}(t), \vec{x}_{g}(t)]}
+\end{equation}
 
 Finalmente, o operador de turbulência ocorre para evitar que o enxame fique preso nos mínimos locais. O operador cria novas posições vizinhas que são avaliadas em cada iteração. Se as novas posições forem soluções não dominadas, elas serão incluídas no EA.

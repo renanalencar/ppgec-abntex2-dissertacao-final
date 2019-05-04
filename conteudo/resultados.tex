@@ -173,21 +173,30 @@ Quanto aos tempos de execução do algoritmo, mostrados na Tabela \ref{tab:resul
 % ---
 
 %COLOCAR OS RESULTADOS FINAIS DO MOFSS-TACO
-Os resultados para o MOFSS sendo o OG do algoritmo base (ver Tabela \ref{tab:resultado-mofss}) se mostram bastante interessantes. Ao minimizar simultaneamente CTR e RML, o MOFSS consegue resultados menores que o TACO sem otimizador externo, tendo em vista os valores otimizados do TACO de forma mono-objetiva como visto na Tabela \ref{tab:resultado-taco}. Entretanto, para os resultados parciais não são menores quando comparados as abordagens PSO-TACO e FSS-TACO. Todavia, deve ser levado em consideração que os objetivos CTR e RML estão sendo minimizados de forma simultânea o que garante um tempo de execução menor dos que os outros dois.
+Os resultados para o MOFSS sendo o OG do algoritmo base (ver Tabela \ref{tab:resultado-mofss}) se mostram bastante interessantes. Ao minimizar simultaneamente CTR e RML, o MOFSS consegue resultados menores que o TACO sem otimizador externo, tendo em vista os valores otimizados do TACO de forma mono-objetiva como visto na Tabela \ref{tab:resultado-taco}. Entretanto, os número obtidos são maiores quando comparados as abordagens PSO-TACO e FSS-TACO. Todavia, deve ser levado em consideração que os objetivos CTR e RML estão sendo minimizados de forma simultânea o que garante um tempo de execução menor dos que os outros dois.
 
 \begin{table}[htb]
     \centering
     \caption{Resultados para TACO com MOFSS sendo o Otimizador Global} \label{tab:resultado-mofss}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \multicolumn{4}{|c|}{Média de 30 simulações com 1000 iterações} \\ \hline
-    \multicolumn{4}{|c|}{Minimizando CTR e RML}                     \\ \hline
-    CTR            & D.P.          & RML            & D.P.          \\ \hline
-    1,398          & 0,279         & 0,732          & 0,011         \\ \hline
+    \multicolumn{5}{|c|}{Média de 30 simulações com 1000 iterações} \\ \hline
+    \multicolumn{5}{|c|}{Minimizando CTR e RML}                     \\ \hline
+    CTR            & D.P.          & RML            & D.P.      &Tempo Médio de Execução (horas)   \\ \hline
+    1,398          & 0,279         & 0,732          & 0,011     &20,1                              \\ \hline
     \end{tabular}
     \end{table}
 
-Ao fim de cada execução, a abordagem MOFSS-TACO gera um conjunto de soluções ótimas não-dominadas. Como o problema não tem grande complexidade, ao final de cada execução independente gera um conjunto com quatro soluções não dominadas.
+Ao fim de cada execução, a abordagem MOFSS-TACO gera um conjunto de soluções ótimas não-dominadas. Como o problema não tem grande complexidade, ao final de cada execução independente gera um conjunto com quatro soluções não dominadas como visto na Figura \ref{fig:mofsstaco-pareto}.
+
+\begin{figure}[!htb]
+    \centering
+    \caption{Gráfico do arquivo externo contendo as soluções não dominadas para o MOFSS-TACO.} \label{fig:mofsstaco-pareto}
+    \includegraphics[scale=1.0]{imagens/mofss-taco-pareto.png}
+    \legend{Fonte: O próprio autor}
+\end{figure}
+
+Um problema encontrado durante os experimentos com o MOFSS-TACO é o seu tempo de execução visto na Tabela \ref{tab:resultado-mofss}. Enquanto as abordagens FSS-TACO e PSO-TACO tiveram tempo médio em torno de 4,3 e 1,4 horas (ver Tabela \ref{tab:resultado-tempo}), respectivamente, a abordagem com OG multi-objetivo teve um tempo médio de execução proximo de 20,1 horas. O que torna o processo dispondioso se comparado a rotina de pedidos do CAF, discriminado na Seção \ref{sec-resultados-tempo}.
 
 \section{Discussão dos Resultados}
 

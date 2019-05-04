@@ -6,9 +6,13 @@
 
 O problema de Múltiplos Caixeiros Viajantes (MTSP) vem sendo estudado nas últimas duas décadas apresentando várias abordagens para a otimização de suas soluções. Entretanto, ainda é escasso estudos relacionados ao MTSP dentro da área hospitalar. Este trabalho mostra que a distribuição de medicamentos em um hospital de grande porte ou em grande rede de farmácias pode ser realizada de forma eficiente com o auxílio de uma ferramenta computacional.
 
+Este trabalho propôs o uso de uma metodologia para resolução de problemas de MTSP, que visa a distribuição de medicamentos, otimizando a programação de percursos para a entrega. A partir de um cenário hospitalar, são construídas instâncias de MTSP. Estas instâncias são otimizadas pela abordagem TACO ()\textit{Team Ant Colony Optimization}), algoritmo proposto por Vallivaara (2008) \cite{vallivaara2008team}, para distribuição de medicamentos a material hospitalar bem como os percursos a serem realizados pelos entregadores.
+
+As melhores soluções geradas pela TACO são utilizadas para definir a distribuição das ordens entre os entregadores e os percursos que devem ser realizados. Ao fim do processo de encontro das soluções, um otimizador global é utilizado, baseado em algoritmos de base populacional como os algoritmos de enxames.
+
 O modelo proposto descrito foi eficiente na distribuição das ordens de serviço entre os entregadores e na criação de rotas otimizadas para a realização dos serviços. No entanto, algumas questões precisam ser analisadas, como a otimização multi-objetivo do custo total das rotas e a rota mais longa e a otimização das mochilas dos entregadores.
 
-Para a criação de soluções otimizadas para MTSP neste trabalho, um algoritmo baseado na meta-heurística ACO foi implementado e associado a um otimizador global. O FSS e PSO foram responsáveis por otimizar os parâmetros TACO para melhorar os resultados.
+Para a criação de soluções otimizadas para MTSP, um algoritmo baseado na meta-heurística ACO foi implementado e associado a um otimizador global. O FSS e PSO foram responsáveis por otimizar os parâmetros TACO para melhorar os resultados.
 
 Como mostrado na Seção 6, o FSS alcançou os melhores resultados para ambos os cenários, com os menores resultados de minimização para o Custo Total de Rotas (CTR) e a Rota Mais Longa (RML) com desvios padrão em torno de zero. Nesses dois casos, o FSS como otimizador global convergiu mais cedo do que as outras duas abordagens.
 
@@ -19,6 +23,8 @@ Outra abordagem possível para o problema do MTSP é otimizar os dois objetivos 
 Como trabalho futuro, pretende-se verificar a utilização de algumas variações de valores para os operadores dos otimizadores globais a fim de encontrar melhores configurações. Também deve ser verifcado a distribuição dos medicamentos reduzindo variando o quadro de entregadores (aqui considerados como caixeiros da instância MTSP).
 
 Outra meta-heurística que tem obtido resultados consistentes para problemas de otimização combinatória são os Algoritmos Genéticos (AG) \cite{somhom1999competition}, que serão utilizados como otimizadores globais para comparação com os resultados obtidos pelos experimentos deste trabalho em novos experimentos.
+
+Com os resultados parciais deste trabalho, foi escrito um artigo para a \textit{18th International Conference on Hybrid Intelligent Systems} (HIS 2018 - \url{http://www.mirlabs.org/his18/}), que será realizado em Porto, Portugal, no período de 13 a 15 de dezembro de 2018. O artigo foi aceito para ser apresentado no evento.
 
 Para análise e efeito comparativo entre a proposta e os algoritmos de estado-da-arte, pretende-se realizar testes estásticos com os dados coletados durante as simulações da instância MTSP criada para a verificação de desempenho. Experimentos com a proposta e abordagens multi-objetivas como SMPSO (NEBRO et al., 2009) \cite{nebro2009}, MOEA/D (ZHANG; LI, 2007) \cite{zhang2007} e SPEA2 (ZITZLER; LAUMANNS; THIELE, 2001) \cite{zitzler2001} também serão realizados para verificar a robustez e eficiência. Como consequência, haverá realização de um quadro comparativo entre as diferentes instâncias do problema e a aplicação das abordagens citadas neste trabalho.
 
